@@ -1,23 +1,25 @@
-import { Link } from 'react-router-dom';
-import CartWidget from './CartWidget';
+import Button from '../examples/Button'
+import '../styles/Navbar.css'
 
 const Navbar = () => {
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        <img src="/src/assets/logo.svg" alt="Logo" width="50" />
-      </Link>
-      
-      <ul className="navbar-links">
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/categoria/electronics">Electrónicos</Link></li>
-        <li><Link to="/categoria/jewelery">Joyas</Link></li>
-        <li><Link to="/categoria/men's clothing">Ropa Masculina</Link></li>
-      </ul>
-      
-      <CartWidget />
-    </nav>
-  );
-};
+  const carrito = () => {
+    alert('Carrito')
+  } 
+  // esto de arriba es un ejemplo de como se puede hacer un boton en el navbar con un alert
 
-export default Navbar;
+  return (
+    <nav className="nav-container">  
+          <a>Vinos Punilla</a> 
+          <div className='a-container'>
+            <a>Inicio</a>
+            <a>Nuevos</a>
+            <a>Ofertas</a>        
+            <a>Más vendidos</a>
+          </div>   
+          {/* ejemplo de como poner otro boton aca */}
+          <Button text='🛒' style='' handler={carrito} />
+    </nav>
+  )
+}
+
+export default Navbar

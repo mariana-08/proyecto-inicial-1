@@ -1,0 +1,17 @@
+ /* mi codigo css  */
+/* navbar  */
+.nav-container {
+background-color: firebrick;
+padding: 2rem;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.a-container {
+    color:#fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
