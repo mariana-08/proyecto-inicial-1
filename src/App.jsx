@@ -1,55 +1,31 @@
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
+//import Button from "./examples/Button";
 
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+function App() {  
 
-// function App() {
-//   const [count, setCount] = useState(0)
+  // const nombre = "Laura"
+  // const saludar=() => {
+  //   alert('Holis')
+  // }
+  // const login = () => {
+  //   console.log('Holaaaa')
+  // }
 
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
-
-// 
-import { BrowserRouter as Router } from 'react-router-dom';
-import {CartProvider} from './components/CartProvider';
-import Navbar from './components/Navbar';
-import Contenedor from './components/Contenedor';
-
-function App() {
   return (
-    <Router>
-      <CartProvider>
-      <Navbar />
-      <Contenedor mensajeBienvenida="¡Explora nuestros productos!"/> 
-      </CartProvider>
-    </Router>
+    <>
+      <Navbar/>
+      <ItemListContainer greeting='Bienvenidos a mi primer App ❤ ' />
+     
+
+      {/* <ItemListContainer nombre={nombre} apellido='Therisod' mayor={true} /> */}
+      {/* aca se puede pasar cualquier formato de props como se ve en ItemListContainer */}
+      
+      {/* Ejemplos de  props */}
+      {/* <Button text='Hola Coders 😃' style='button-purple' handler={saludar} />
+      <Button text='log in' style='button-gray' handler={login} disabled={true}/> */}
+    </>
   );
 }
 

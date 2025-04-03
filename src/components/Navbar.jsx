@@ -1,23 +1,24 @@
-import { Link } from 'react-router-dom';
+// import '../styles/Navbar.css' esto se usa si quiero hacer el css desde la carpeta styles
+//import Button from '../examples/Button';
 import CartWidget from './CartWidget';
 
-const Navbar = () => {
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        <img src="/src/assets/logo.svg" alt="Logo" width="50" />
-      </Link>
-      
-      <ul className="navbar-links">
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/categoria/electronics">Electrónicos</Link></li>
-        <li><Link to="/categoria/jewelery">Joyas</Link></li>
-        <li><Link to="/categoria/men's clothing">Ropa Masculina</Link></li>
-      </ul>
-      
-      <CartWidget />
-    </nav>
-  );
-};
+const Navbar =() => {
+  // const cart = () => {
+  //   alert('Carrito de compras')
+  // }
 
+  return (
+    <nav className="navContainer">
+      <img src='../Logo-shop.png' alt='Logo de shop' className='logo'/>
+      <div className="a-container">
+        <a>Nuevos</a>
+        <a>Ofertas</a>
+        <a>Más vendidos</a>
+      </div>
+      {/* <Button text='' style='' handler={cart} /> */}
+      <CartWidget/>
+    </nav>
+  )
+
+}
 export default Navbar;
