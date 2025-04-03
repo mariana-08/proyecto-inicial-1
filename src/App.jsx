@@ -1,6 +1,10 @@
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
 import ItemListContainer from "./components/ItemListContainer";
+import { Button } from "react-bootstrap"; 
+import NavbarBootstrap from "./components/NavbarBootstrap";
+
 //import Button from "./examples/Button";
 
 function App() {  
@@ -15,9 +19,11 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
+      <NavbarBootstrap/>
       <ItemListContainer greeting='Bienvenidos a mi primer App ❤ ' />
-     
+      <button className="btn btn-primary" >Hola</button>
+      <Button variant="dark">Holasss</Button>
 
       {/* <ItemListContainer nombre={nombre} apellido='Therisod' mayor={true} /> */}
       {/* aca se puede pasar cualquier formato de props como se ve en ItemListContainer */}
