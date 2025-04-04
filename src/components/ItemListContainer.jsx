@@ -1,20 +1,11 @@
-// ejemplo de props en un componente funcional
-// const ItemListContainer = ({nombre, apellido}) => {
-//  // console.log(props);
-//   // const {nombre, apellido}= props
-
-//   return (
-//     <div>
-//       {/* <p>{nombre}</p>
-//       <p>{apellido}</p> */}
-//     </div>    
-//   );
-// }
+import ItemCount from "./ItemCount";
 
 const ItemListContainer = ({greeting}) => {
+  console.log('ItemListContainer')
   return (
     <div>
       <h1>{greeting}</h1>
+      <ItemCount/>
     </div>
 
   )
