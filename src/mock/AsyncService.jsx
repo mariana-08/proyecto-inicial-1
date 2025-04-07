@@ -48,6 +48,6 @@ export const getProducts = () => {
             } else {
                 resolve(products)
             }
-        },4000)
+        },2000)
     })
 }

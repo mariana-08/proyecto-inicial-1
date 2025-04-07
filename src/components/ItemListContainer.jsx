@@ -1,11 +1,10 @@
-import ItemCount from "./ItemCount";
-import { getProducts } from "../mock/AsyncService";
+// import ItemCount from "./ItemCount";
+import { getProducts} from "../mock/AsyncService";
 import { useEffect, useState} from "react";
-
+import ItemList from "./ItemList";
 
 const ItemListContainer = ({greeting}) => {
   const [data, setData] = useState([])
-
   console.log('ItemListContainer')
 
   //promise (PROMESAS)
@@ -26,7 +25,6 @@ const ItemListContainer = ({greeting}) => {
 
 //console.log(getProducts(), 'sin el then')
   useEffect(() => {
-    console.log('useEffect')
     getProducts()
     .then((res)=> setData(res))
     .catch((error) => console.log(error))
@@ -38,7 +36,11 @@ const ItemListContainer = ({greeting}) => {
       {/* <ItemCount stock={5}/> */}
       {/* <ItemCount stock={15}/> */}
       {/*se llama al array data para el metodo map  */}
-      {data.map((producto) =><p>{producto.name}</p>)}
+      {/* {data.map((producto) =><p key={producto.id}>{producto.name}</p>)}     */}
+      {/* esto que esta abajo es para la actividad de la preentrega 2, lo de arriba es lo que se vio  en 
+      clases con data.map y key  */}
+      {/* ejemplo para preentrega2 abajo */}
+      <ItemList data ={data}/>
     </div>
   )
 }
