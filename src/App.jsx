@@ -7,6 +7,8 @@ import NavbarBootstrap from "./components/NavbarBootstrap";
 //import Button from "./examples/Button";
 import FetchCountry from "./examples/FetchCountry";
 //ejemplo de fetch para paises 
+import FetchData from "./examples/FetchData";
+//ejemplo de fetch para pokemones y dragon ball con map y useEffect
 
 
 function App() {  
@@ -16,6 +18,7 @@ console.log('Hola soy App')
       <NavbarBootstrap/>
       <ItemListContainer greeting='Bienvenidos a mi primer App ❤ ' />   
       <FetchCountry/> 
+      <FetchData/>
     </>
   );
 }

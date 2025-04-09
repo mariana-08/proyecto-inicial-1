@@ -20,9 +20,11 @@ useEffect(() => {
    
 return (
     <div>
-        {
+        <p>aparece lista de Pokemones</p>
+        {   
             pokemones.map((pokemon)=><p key={pokemon.name}>{pokemon.name}</p>)
         }
+        <p>aparece personaje de Dragon Ball</p>
         <div className='card' style={{width:'18rem', marginTop:15}}>
         <img className='card-img-top' src={dragonBall.image} alt={dragonBall.name}/>
         <div className='card-body'>
