@@ -14,10 +14,11 @@ useEffect(() => {
 useEffect(() => {
     fetch('https://dragonball-api.com/api/characters/1')
     .then((response) => response.json())//los convierto a json
-    .then((data) => setDragonBall(data))//los guardo en el state
+    .then((data) => setDragonBall(data))//los guardo en un estado hablando de uno solo. pero si quiero hacer un map lo guardo en un array seria sacando el 1 en fetch y en setDragonBall(data) deberia ser setDragonBall(data.Items)
     .catch((error) => console.log(error))//si hay error lo muestro en consola
 },[])
    
+
 return (
     <div>
         <p>aparece lista de Pokemones</p>
@@ -26,13 +27,13 @@ return (
         }
         <p>aparece personaje de Dragon Ball</p>
         <div className='card' style={{width:'18rem', marginTop:15}}>
-        <img className='card-img-top' src={dragonBall.image} alt={dragonBall.name}/>
-        <div className='card-body'>
-            <h5 className='card-title'>{dragonBall.name}</h5>
-            <p className='card-text'>{dragonBall.ki}</p>
-            <a className='btn btn-dark'>Ver más</a>
+            <img className='card-img-top' src={dragonBall.image} alt={dragonBall.name}/>
+            <div className='card-body'>
+                <h5 className='card-title'>{dragonBall.name}</h5>
+                <p className='card-text'>{dragonBall.ki}</p>
+                <a className='btn btn-dark'>Ver más</a>
+            </div>
         </div>
-    </div>
     </div>
   )
 }
