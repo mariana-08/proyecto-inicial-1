@@ -6,7 +6,7 @@ const products = [
     description: 'Descripcion del producto 1',
     stock: 15,
     category: 'Nuevos',
-    img: 'https://via.placeholder.com/150',
+    img:'https://picsum.photos/205'
   },
   {
     id:'02',
@@ -15,7 +15,7 @@ const products = [
     description: 'Descripcion del producto 2',
     stock: 5,
     category: 'Ofertas',
-    img: 'https://via.placeholder.com/150',
+    img:'https://picsum.photos/200'
   },
   {
     id:'03',
@@ -24,7 +24,7 @@ const products = [
     description: 'Descripcion del producto 3',
     stock: 35,
     category: 'Más vendidos',
-    img: 'https://via.placeholder.com/150',
+    img:'https://picsum.photos/204'
   },
   {
     id:'04',
@@ -33,11 +33,11 @@ const products = [
     description: 'Descripcion del producto 4',
     stock: 10,
     category: 'Nuevos',
-    img: 'https://picsun.photos/206',
+    img:'https://picsum.photos/206',
   }
 ]
 
-// promesa para simular una llamada a una API
+// promesa para simular una llamada a una API y devolver todos los productos
 
 export const getProducts = () => {
     return new Promise((resolve, reject) => {
@@ -50,4 +50,16 @@ export const getProducts = () => {
             }
         },2000)
     })
+}
+
+//funcion para q devuelva un solo producto
+export const getOneProduct = (id) =>{
+  return new Promise((resolve)=> {
+    let productFound = products.find((prod) => prod.id === id)
+    setTimeout(() => {
+      //resolve(products[0])
+      resolve (productFound)
+    },1500) // 1.5 segundos
+
+  }) 
 }
