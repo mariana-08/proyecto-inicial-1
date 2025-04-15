@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Item = ({producto}) => {
   return (
@@ -8,7 +9,9 @@ const Item = ({producto}) => {
             <h5 className='card-title'>{producto.name}</h5>
             <p className='card-text'>${producto.price},00</p>
             <p className='card-text'>{producto.description}</p>        
-            <a href="#" className='btn btn-dark'>Ver más</a>
+            <Link href="#" className='btn btn-dark'to={`/item/${producto.id}`} >Ver más</Link>
+            {/* <Link href="#" className='btn btn-dark'to={'/item/'+producto.id} >Ver más</Link> */}
+            {/* esta es otra forma de hacerlo pero es recomendable hacer la primera */}
         </div>
     </div>
   )

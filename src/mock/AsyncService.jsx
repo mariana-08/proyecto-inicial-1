@@ -5,7 +5,7 @@ const products = [
     price: 100,
     description: 'Descripcion del producto 1',
     stock: 15,
-    category: 'Nuevos',
+    category: 'nuevos',
     img:'https://picsum.photos/205'
   },
   {
@@ -14,7 +14,7 @@ const products = [
     price: 250,
     description: 'Descripcion del producto 2',
     stock: 5,
-    category: 'Ofertas',
+    category: 'ofertas',
     img:'https://picsum.photos/200'
   },
   {
@@ -23,7 +23,7 @@ const products = [
     price: 500,
     description: 'Descripcion del producto 3',
     stock: 35,
-    category: 'Más vendidos',
+    category: 'mas vendidos',
     img:'https://picsum.photos/204'
   },
   {
@@ -32,7 +32,7 @@ const products = [
     price: 5600,
     description: 'Descripcion del producto 4',
     stock: 10,
-    category: 'Nuevos',
+    category: 'nuevos',
     img:'https://picsum.photos/206',
   }
 ]
