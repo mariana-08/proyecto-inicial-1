@@ -1,5 +1,7 @@
 import { TiShoppingCart } from "react-icons/ti";
 import {Badge} from 'react-bootstrap';
+import React from 'react';
+// import { CartContext } from "../context/CartContext"; // importamos el contexto del carrito  
 
 const CartWidgetReactIcons = () => {
     return (
