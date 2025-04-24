@@ -6,7 +6,7 @@ import LoaderComponent from './LoaderComponent'
 
 const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({})
-  const[loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const {itemId} =useParams()
   console.log(itemId)
 
@@ -18,11 +18,10 @@ const ItemDetailContainer = () => {
     .finally(() => setLoading(false))
   },[ itemId ])
   
-  // console.log(productDetail)
-
   return (
     <div>
-      {loading ?<LoaderComponent/> : <ItemDetail productDetail={productDetail}/>}
+      {loading ? <LoaderComponent/> : <ItemDetail productDetail={productDetail}/>} 
+       {/* si loading es true muestro el loader, cuando pasa a false muestro el detalle del producto */}
    
     </div>
   )

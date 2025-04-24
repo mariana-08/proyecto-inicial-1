@@ -6,7 +6,7 @@ const LoaderComponent = () => {
   return (
     <div style={{width: '100%', height: '75vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
       {/* <PacmanLoader color="yellow" size={50} aria-label="Loading Spinner" data-testid="loader" /> */}
-      <Spinner animation="grow" variant="primary" />
+      <Spinner animation="border" variant="secondary" />
     </div>
   )
 }
