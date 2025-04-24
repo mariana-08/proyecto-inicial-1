@@ -59,7 +59,7 @@ export const getOneProduct = (id) =>{
     setTimeout(() => {
       //resolve(products[0])
       resolve (productFound)
-    },1500) // 1.5 segundos
+    },2000) // 2 segundos
 
   }) 
 }

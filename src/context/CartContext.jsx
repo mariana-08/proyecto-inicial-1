@@ -12,8 +12,10 @@ export const CartProvider = ({children}) => {
     const addToCart =(item, cantidad) => {
         //evaluar si el item ya existe en el carrito
         if(isInCart(item.id)) {
-            //sumar cantidades acá!!
-            console.log("Ya existe el item en el carrito")
+            //hacer la logica de sumar cantidades
+            //sumar cantidades 
+            console.log("ya existe el item en el carrito") 
+           
 
         }else {
             //sumar un nuevo item al carrito
@@ -35,6 +37,11 @@ export const CartProvider = ({children}) => {
     const isInCart =(id) =>{
         return cart.some((prod)=> prod.id === id) //recorriendo el carrito y devolviendo true o false si el id coincide con el del item a eliminar
     }
+
+    //funcion total de productos (cartWidget)
+
+
+    //funcion total a pagar (cartView // checkout)
     
     return(
         <CartContext.Provider value={{cart, addToCart, clear, removeItem}}>
