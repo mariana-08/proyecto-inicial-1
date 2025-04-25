@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../context/CartContext'
+import React from 'react'
 
-const CartItem = () => {
-    const {compra, removeItem} = useContext(CartContext) 
+const CartItem = ({compra, removeItem}) => {
   return (
     <div>
         <div key={compra.id} style={{display: 'flex', justifyContent: 'space-between', border: '1px solid black', margin: '10px', padding: '10px'}}>
@@ -16,5 +14,4 @@ const CartItem = () => {
     </div>
   )
 }
-
 export default CartItem
