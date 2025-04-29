@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import CartItem from './CartItem'
+import { Link } from 'react-router-dom'
 
 
 const CartView = () => {
@@ -17,6 +18,8 @@ const CartView = () => {
         {/* aca se llama a la funcion  */}
         <span>Total a pagar: $</span>  
         <button className='btn btn-danger' onClick={clear}>Borrar todo el carrito</button>
+        <Link className='btn btn-primary' to='/'>Seguir comprando</Link> 
+        {/* este link sirve para seguir ocmprando pero puede aparecer antes y no aca */}
         <button className='btn btn-success'>Finalizar compra</button> 
     </div>
   )

@@ -30,6 +30,7 @@ const ItemDetail = ({productDetail}) => {
       {compro ? <Link className='btn btn-success' to='/cart'>Ir al carrito</Link> : <ItemCount stock={productDetail.stock} onAdd={onAdd} /> 
       }
            {/* esto sirve para cuando aprieto comprar aparezca el boton que dice ir al carrito para luego ver la cart  */}
+      <Link className='btn btn-primary' to='/'>Seguir comprando</Link>
     </div>
   )
 }
