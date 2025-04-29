@@ -38,13 +38,17 @@ export const CartProvider = ({children}) => {
         return cart.some((prod)=> prod.id === id) //recorriendo el carrito y devolviendo true o false si el id coincide con el del item a eliminar
     }
 
-    //funcion total de productos (cartWidget)
-
+    //funcion total de productos (cartWidget) // esto lo arme yo pero no se si es asi
+    const totalProducts = () => {
+        return cart.reduce((acc, prod) => acc + prod.quantity, 0) //recorriendo el carrito y sumando las cantidades de los productos
+    }
 
     //funcion total a pagar (cartView // checkout)
     
+
+
     return(
-        <CartContext.Provider value={{cart, addToCart, clear, removeItem}}>
+        <CartContext.Provider value={{cart, addToCart, clear, removeItem,}}>
             {children}
         </CartContext.Provider>
     )
