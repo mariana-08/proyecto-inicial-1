@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 const CartView = () => {
-  const {cart,clear} = useContext(CartContext) 
+  const {cart,clear,cartTotal} = useContext(CartContext) 
     
   return (
     <div>

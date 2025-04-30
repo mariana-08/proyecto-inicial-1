@@ -31,6 +31,7 @@ function NavbarBootstrap() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        
         <CartWidgetReactIcons/>
       </Container>
     </Navbar>

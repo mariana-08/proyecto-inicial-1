@@ -14,8 +14,17 @@ export const CartProvider = ({children}) => {
         if(isInCart(item.id)) {
             //hacer la logica de sumar cantidades
             //sumar cantidades 
-            console.log("ya existe el item en el carrito") 
-           
+            const updatedCart = cart.map((prod) => {
+                if(prod.id === item.id) {
+                  //sumar cantidades
+                  return {...prod, quantity: prod.quantity + cantidad} //si el id coincide, sumar la cantidad al producto
+              
+            } else{
+                return prod 
+            }
+        })
+             setCart(updatedCart) //actualizar el carrito con el nuevo array
+                    
 
         }else {
             //sumar un nuevo item al carrito
@@ -39,16 +48,18 @@ export const CartProvider = ({children}) => {
     }
 
     //funcion total de productos (cartWidget) // esto lo arme yo pero no se si es asi
-    const totalProducts = () => {
-        return cart.reduce((acc, prod) => acc + prod.quantity, 0) //recorriendo el carrito y sumando las cantidades de los productos
+    const cartQuantity = () => {
+        return cart.reduce((acc, prod) => acc += prod.quantity, 0) //recorriendo el carrito y sumando la cantidad de cada producto
     }
-
-    //funcion total a pagar (cartView // checkout)
     
+    //funcion total a pagar (cartView // checkout)
+    const cartTotal = () => {
+        return cart.reduce((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo
+    }
 
 
     return(
-        <CartContext.Provider value={{cart, addToCart, clear, removeItem,}}>
+        <CartContext.Provider value={{cart, addToCart, clear, removeItem,cartTotal, cartQuantity, }}>
             {children}
         </CartContext.Provider>
     )
