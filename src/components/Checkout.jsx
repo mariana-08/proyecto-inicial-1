@@ -1,71 +1,68 @@
-import React from 'react'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import React, {useContext, useState} from 'react'
+import { CartContext } from '../context/CartContext'
+import { db } from '../service/firebase'
 
-const Checkout = () => {
-    const [buyer, setBuyer]   = useState({})
+const Checkout = () => {  
+    const [buyer, setBuyer] = useState({}) 
     const [validateEmail, setValidateEmail] = useState('')
     const [orderId, setOrderId] = useState('')
-    const {cart} = useCartContext()
-    
+    const {cart, clear, cartTotal} = useContext(CartContext) 
     const buyerData = (e) => {
         setBuyer(
             {
-            ...buyer,
-            [e.target.name]: e.target.value
+                ...buyer,
+                [e.target.name] : e.target.value
             }
         )
     }
 
-    const finalizarCompra =(e) =>{
+    const finalizarCompra = (e) => {
         //hacer q la app no recargue
         e.preventDefault()
-
-        //valido 
+        //valido
         if(!buyer.name || !buyer.lastname || !buyer.email ){
-            alert('Completa todos los campos')
-            
+            alert("Completa todos los campos")            
         }else if(buyer.email !== validateEmail){
-            alert('Los emails no coinciden')
+            alert ("Los correos no coinciden")
+        }else {
+            let order ={
+                comprador: buyer,
+                compras: cart,
+               // total: 56 // llamar a la funcion Total que se hace despues abajo -> cartTotal()
+                total: cartTotal(),
+                date: serverTimestamp()
+            }
+    
+            const ventas = collection(db, "orders")
+            //agregar un doc
+            addDoc(ventas, order)
+            .then ((res) =>{
+                setOrderId(res.id)
+                clear()
+            }) 
+            .catch ((error) => console.log(error))
         }
-
-        let order={
-            comprador: buyer,
-            compras: cart,
-            total:56 // llamar a la funcion de total 
-            total: cartTotal(),
-            date: serverTimestamp()
-        }
-
-        const ventas = collection(db, "orders")
-
-        //agregar un doc a la coleccion
-        addDoc(ventas,order)
-        .then((res) =>{
-            setOrderId(res.id)
-            clearCart()
-
-        })
     }
 
-  return (
-    <div>
-        {orderId ?
-         <div>
-            <h2>Gracias por tu compra</h2>
-            <p>Tu id de compra es: {orderId}</p>
-        </div>
-        :<div>
+    return (
+        <div> 
+        {orderId
+        ?<div>
+            <h2>Realizaste tu compra, el id es: {orderId}</h2>
+            </div>
+            :<div>
                 <h1>Completa con tus datos</h1>
-                <form onSubmit={}>
-                    <input type="text"  name='name' onChange={buyerData}/>
-                    <input type="text"  name='lastname' onChange={buyerData}/>
-                    <input type="email"  name='email' onChange={buyerData}/>
-                    <input type="email"  name='second-email' onChange={(e) => setValidateEmail(e.target.value)}/>
+                <form onSubmit={finalizarCompra}>
+                    <input type="text" name='name' onChange={buyerData}/>
+                    <input type="text" name='lastname' onChange={buyerData} />
+                    <input type="email" name='email' onChange={buyerData}/>
+                    <input type="email" name='second-email' onChange={(e)=>setValidateEmail(e.target.value)}/>
                     <button type='submit'>Enviar</button>
-                </form>   
-        </div>   
-        }
-    </div>
-  )
+                </form> 
+            </div>       
+            }           
+        </div>
+    )
 }
-
 export default Checkout

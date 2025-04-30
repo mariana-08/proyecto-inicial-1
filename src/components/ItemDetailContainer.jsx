@@ -18,11 +18,12 @@ const ItemDetailContainer = () => {
     setLoading(true)
     //conectar con nuestra collection
     const productCollection = collection(db, "productos")
-    //crea la ref del doc
+    //crea la referencia del doc
     const docRef= doc(productCollection, itemId )
-    //forma corta
-    //const docRef = doc(db, "productos", id)
-
+    
+    //forma corta sin necesidad de const productCollection= collection(db, "productos") y la const docRef= doc(productCollection, itemId ) se puede poner solo esto:
+    //const docRef= doc(db, "productos", itemId )
+   
     getDoc(docRef)
     .then((res)=>{
       if(res.data()){
@@ -44,10 +45,11 @@ const ItemDetailContainer = () => {
   //   .finally(() => setLoading(false))
   // },[ itemId ])
   
+  
   if(invalid) {
     return <div>
-      <h2>Lo siento este producto no existe 😢</h2>
-      <Link className='btn btn-dark' to="/">Volver al inicio</Link>
+        <h2>Lo siento este producto no existe 😢</h2>
+        <Link className='btn btn-dark' to="/">Volver al inicio</Link>
       </div>
   }
 

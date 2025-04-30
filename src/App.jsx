@@ -7,24 +7,24 @@ import {BrowserRouter,Routes, Route} from 'react-router-dom'
 // importamos al proveedor del carrito
 import { CartProvider } from "./context/CartContext"; 
 import Cart from "./components/Cart";
-
+import Checkout from "./components/Checkout";
 
 function App() {   
-//envolvemos los componentes para que tengan acceso al contexto.
   return (
     <BrowserRouter>     
     <CartProvider> 
-    <NavbarBootstrap/>      
+    <NavbarBootstrap/>  
+
       <Routes>
         <Route path='/' element={ <ItemListContainer greeting='Bienvenidos a mi primer App ❤ ' /> }/> 
         <Route path='/category/:categoryId' element={ <ItemListContainer greeting='Estas en la categoria: 👌' /> }/>      
         <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
-        <Route path='/cart' element={ <Cart/> } /> 
-        <Route path='checkout' element={ <Checkout/> } />
+        <Route path='/cart' element={<Cart/>} /> 
+        <Route path='checkout' element={<Checkout/>} /> 
       </Routes>
     </CartProvider>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;

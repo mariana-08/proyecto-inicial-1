@@ -16,11 +16,10 @@ const CartView = () => {
           ))}
         </div> 
         {/* aca se llama a la funcion  */}
-        <span>Total a pagar: $</span>  
+        <span>Total a pagar: ${cartTotal()}</span>  
         <button className='btn btn-danger' onClick={clear}>Borrar todo el carrito</button>
         <Link className='btn btn-primary' to='/'>Seguir comprando</Link> 
-        {/* este link sirve para seguir ocmprando pero puede aparecer antes y no aca */}
-        <button className='btn btn-success'>Finalizar compra</button> 
+        <Link to='/checkout'>Finalizar compra</Link> 
     </div>
   )
 }

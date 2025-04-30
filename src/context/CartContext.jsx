@@ -4,31 +4,27 @@ import { createContext, useState } from 'react';
 export const CartContext = createContext({}); 
 // creamos un proveedor para el context 
 export const CartProvider = ({children}) => { 
-     const [cart, setCart] = useState([]) // estado del carrito, por defecto es un array vacio
+    const [cart, setCart] = useState([]) // estado del carrito, por defecto es un array vacio
 
-                //funciones que modifican el carrito
+            //funciones que modifican el carrito
 
     //agregar item al carrito
     const addToCart =(item, cantidad) => {
-        //evaluar si el item ya existe en el carrito
+        //evaluar si el item ya existe en el carrito        
         if(isInCart(item.id)) {
-            //hacer la logica de sumar cantidades
-            //sumar cantidades 
+            //hacer la logica de sumar cantidades           
             const updatedCart = cart.map((prod) => {
-                if(prod.id === item.id) {
-                  //sumar cantidades
-                  return {...prod, quantity: prod.quantity + cantidad} //si el id coincide, sumar la cantidad al producto
-              
-            } else{
-                return prod 
-            }
-        })
-             setCart(updatedCart) //actualizar el carrito con el nuevo array
-                    
-
+                if(prod.id === item.id){
+                    //sumar cantidades
+                    return {...prod, quantity: prod.quantity + cantidad} //si el id coincide con el del item a agregar, sumamos la cantidad al carrito
+                }else {
+                    return prod 
+                }
+            })
+            setCart(updatedCart) //actualizar el carrito con el nuevo array
         }else {
-            //sumar un nuevo item al carrito
-        setCart([...cart,{...item, quantity:cantidad}]) //agregar el item al carrito y la cantidad
+                //sumar un nuevo item al carrito
+            setCart([...cart,{...item, quantity:cantidad}]) //agregar el item al carrito y la cantidad
         }        
     }
 
@@ -49,17 +45,16 @@ export const CartProvider = ({children}) => {
 
     //funcion total de productos (cartWidget) // esto lo arme yo pero no se si es asi
     const cartQuantity = () => {
-        return cart.reduce((acc, prod) => acc += prod.quantity, 0) //recorriendo el carrito y sumando la cantidad de cada producto
+        return cart.reduce((acc,prod) => acc += prod.quantity, 0) //recorriendo el carrito y sumando la cantidad de cada producto
     }
-    
     //funcion total a pagar (cartView // checkout)
-    const cartTotal = () => {
-        return cart.reduce((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo
+    const cartTotal =()  => {
+        return cart.reduce/((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo el total    
     }
 
 
     return(
-        <CartContext.Provider value={{cart, addToCart, clear, removeItem,cartTotal, cartQuantity, }}>
+        <CartContext.Provider value={{cart, addToCart, clear, removeItem, cartTotal,cartQuantity }}>
             {children}
         </CartContext.Provider>
     )

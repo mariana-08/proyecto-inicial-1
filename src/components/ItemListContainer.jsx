@@ -1,9 +1,9 @@
-//import {getProducts} from '../mock/asyncService'
+//import {getProducts, products} from '../mock/AsyncService'
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from 'react-router-dom'
 import LoaderComponent from './LoaderComponent'
-import { collection, getDocs } from 'firebase/firestore'
+import { addDoc, collection, getDocs, query, where, } from 'firebase/firestore'
 import { db } from '../service/firebase'
 
 const ItemListContainer = ({greeting}) => {
@@ -13,15 +13,15 @@ const ItemListContainer = ({greeting}) => {
   console.log(categoryId) 
 
   //FIREBASE
-  useEffect(() => {
+  useEffect (() => {
     setLoader(true)
-    //nos conectamos con nuestra colecion
-    const productsCollection = collection(db, "productos")
+    //conectamos con nuestra collection de firebase
+    const productsCollection = categoryId ? query(collection(db, "productos"), where("category", "==", categoryId)) :collection(db, "productos")
     //pedir los documentos
     getDocs(productsCollection)
-    .then((res)=> {
+    .then((res) => {
       //limpiamos los datos para poder utilizar
-      const list = res.docs.map((doc)=>{
+      const list = res.docs.map((doc) => {
         return {
           id: doc.id,
           ...doc.data()
@@ -29,9 +29,9 @@ const ItemListContainer = ({greeting}) => {
       })
       setData(list)
     })
-    .catch((error)=> console.log(error))
-    .finally(()=> setLoader(false))
-  },[])
+    .catch((error) => console.log(error))
+    .finally(() => setLoader(false))  
+  }, [categoryId])
 
 
   //PROMESA 
@@ -50,15 +50,19 @@ const ItemListContainer = ({greeting}) => {
   //   .finally(() => setLoader(false))
   // },[categoryId])
 
-  //agarro el mock, saco el id:, segundo saco el 1er product porq ya lo hice
+  //Esta parte es para subir los productos de manera dimanico:
+  // agarro el mock, saco el id:, segundo saco el 1er producto porq ya lo hice
 
-
-
-
-
+  //SOLO SE HACE UNA VEZ
+  // const subirData = () => {
+  //   console.log('Subiendo data...')
+  //   const collectionToAdd = collection(db, "productos")
+  //   products.map((item)=> addDoc(collectionToAdd, item))
+  // }
 
   return (
     <div>
+      {/* <button onClick={subirData}>SUBIR UNA SOLA VEZ</button> */}
       { 
         loader ? <LoaderComponent/> 
         :<div>
