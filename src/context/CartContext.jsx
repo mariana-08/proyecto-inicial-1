@@ -49,7 +49,7 @@ export const CartProvider = ({children}) => {
     }
     //funcion total a pagar (cartView // checkout)
     const cartTotal =()  => {
-        return cart.reduce/((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo el total    
+        return cart.reduce((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo el total    
     }
 
 
