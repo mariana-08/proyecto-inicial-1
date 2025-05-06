@@ -1,12 +1,21 @@
-# React + Vite
+# Proyecto CODER REACT
+Este proyecto fue realizado para aprender las bases de React con Javascrip en CoderHouse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](/public/app-readme.png)
 
-Currently, two official plugins are available:
+### Istalación ⌛
+ 1. Clone el repositorio
+ 2. Haga el comando 
+ 3. Instale dependecias con el comando `npm install`
+ 4. Para levantar la app en servidor local ejecute el comando `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ### Versión Host 
 
-## Expanding the ESLint configuration
+ Si desea ver el proyecto online, puede ingresar al siguiente link: 
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ ### Librerias utilizadas 
+ - [React Bootstrap](https://react-bootstrap.netlify.app/): utilizada para el styling de la app
+ - [Firebase](https://react-bootstrap.netlify.app/): utilizada como base de datos
+- [React Router Dom](https://react-bootstrap.netlify.app/): utilizada para la navegacion por rutas de la app
+
+###### Desarrollado por Mariana en el curso de React en Coder Flex
