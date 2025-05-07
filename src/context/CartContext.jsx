@@ -51,10 +51,22 @@ export const CartProvider = ({children}) => {
     const cartTotal =()  => {
         return cart.reduce((acc, prod) => acc += prod.price * prod.quantity, 0) //recorriendo el carrito y multiplicando el precio por la cantidad de cada producto y sumando todo el total    
     }
+        //PLUS
+        //DESCONTAR EL STOCK LOCAL
+        const itemQuantity = (id) => {
+            const itemInCart = cart.find((prod)=> prod.id === id)
+            if(itemInCart){
+                //devuelva la cantidad de ese item en el carrito
+                return itemInCart.quantity
+            }else{
+                //no existe en el carrito
+                return 0
+            }
+        }
 
 
     return(
-        <CartContext.Provider value={{cart, addToCart, clear, removeItem, cartTotal,cartQuantity }}>
+        <CartContext.Provider value={{cart, addToCart, clear, removeItem, cartTotal,cartQuantity, itemQuantity }}>
             {children}
         </CartContext.Provider>
     )
